@@ -10,17 +10,11 @@ class Walker {
     }
 
     step() {
-        const choice = floor(random(4));
+        const xstep = random(-1, 1);
+        const ystep = random(-1, 1);
 
-        if (choice === 0) {
-            this.x++;
-        } else if (choice === 1) {
-            this.x--;
-        } else if (choice === 2) {
-            this.y++;
-        } else {
-            this.y--;
-        }
+        this.x += xstep;
+        this.y += ystep;
     }
 }
 
