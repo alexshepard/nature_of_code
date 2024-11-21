@@ -1,8 +1,8 @@
 let randomCounts = [];
-const total = 40;
+const total = 100;
 
 function setup() {
-    createCanvas(640, 480);
+    createCanvas(640, 640);
 
     for (let i = 0; i < total; i++) {
         randomCounts[i] = 0;
