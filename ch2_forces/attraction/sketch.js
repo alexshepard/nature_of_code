@@ -34,7 +34,7 @@ class Attractor {
 
     show() {
         stroke(0);
-        fill(175, 200);
+        fill(255, 200);
         circle(
             this.position.x,
             this.position.y,
@@ -54,25 +54,31 @@ class Attractor {
     }
 }
 
-let m;
+let movers = [];
 let attractor;
-let G = 1.0;
 
 function setup() {
     createCanvas(640, 240);
 
-    m = new Mover(300, 50, 10);
-    m.applyForce(createVector(random(3, 10), random(3, 10)));
+    for (let i = 0; i < 10; i++) {
+        m = new Mover(random(0, width), random(0, height), random(3, 30));
+        m.applyForce(createVector(random(3, 25), random(3, 25)));
+        movers.push(m);
+    }
+
     attractor = new Attractor();
 }
 
 function draw() {
     background(220);
 
-    let force = attractor.attract(m);
-    m.applyForce(force);
-    m.update();
-
     attractor.show();
-    m.show();
+
+    for (let i = 0; i < movers.length; i++) {
+        let m = movers[i];
+        let force = attractor.attract(m);
+        m.applyForce(force);
+        m.update();
+        m.show();
+    }
 }
