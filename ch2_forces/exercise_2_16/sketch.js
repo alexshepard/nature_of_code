@@ -72,10 +72,6 @@ function setup() {
 }
 
 function draw() {
-    // background(220, 30);
-
-
-
     for (let i = 0; i < bodies.length; i++) {
         let body = bodies[i];
         greatAttractor.attract(body);
@@ -87,8 +83,6 @@ function draw() {
             }
         }
     }
-
-
 
     for (let i = 0; i < bodies.length; i++) {
         let body = bodies[i];
